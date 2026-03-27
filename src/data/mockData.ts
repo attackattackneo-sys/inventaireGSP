@@ -1,0 +1,70 @@
+import { Product } from '../types';
+
+export const initialProducts: Product[] = [
+  {
+    id: '1',
+    sku: 'CAD-NO-2030',
+    name: 'Cadre Noir 20x30',
+    category: 'Cadres',
+    price: 25.00,
+    stock: 15,
+    location: 'Vitrine Avant',
+    alertThreshold: 3,
+    isKit: false,
+  },
+  {
+    id: '2',
+    sku: 'FLM-KOD-P400',
+    name: 'Pellicule Portra 400',
+    category: 'Consommables',
+    price: 14.50,
+    stock: 2, // Low stock for demo
+    location: 'Tiroir Caisse',
+    alertThreshold: 10,
+    isKit: false,
+  },
+  {
+    id: '3',
+    sku: 'KIT-A4-STD',
+    name: 'Kit Tirage + Cadre A4',
+    category: 'Kits',
+    price: 35.00,
+    stock: 0,
+    location: 'Comptoir',
+    alertThreshold: 0,
+    isKit: true,
+  },
+  {
+    id: '4',
+    sku: 'PAP-FA-A3',
+    name: 'Papier FineArt A3',
+    category: 'Consommables',
+    price: 85.00,
+    stock: 4,
+    location: 'Réserve',
+    alertThreshold: 2,
+    isKit: false,
+  },
+  {
+    id: '5',
+    sku: 'ACC-TRE-PRO',
+    name: 'Trépied Carbone Pro',
+    category: 'Accessoires',
+    price: 150.00,
+    stock: 1, // Low stock
+    location: 'Vitrine Arrière',
+    alertThreshold: 2,
+    isKit: false,
+  },
+  {
+    id: '6',
+    sku: 'ALB-CU-MAR',
+    name: 'Album Cuir Mariage',
+    category: 'Albums',
+    price: 120.00,
+    stock: 8,
+    location: 'Étagère 2',
+    alertThreshold: 5,
+    isKit: false,
+  }
+];

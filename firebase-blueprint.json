@@ -1,0 +1,65 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "A user of the StudioStock application.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "user"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "role", "createdAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "An inventory item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "sku": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "stock": { "type": "number" },
+        "location": { "type": "string" },
+        "alertThreshold": { "type": "number" },
+        "isKit": { "type": "boolean" },
+        "imageUrl": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "sku", "name", "category", "price", "stock", "location", "alertThreshold", "isKit", "ownerId", "createdAt"]
+    },
+    "LogEntry": {
+      "title": "LogEntry",
+      "description": "A record of inventory changes.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "sku": { "type": "string" },
+        "productName": { "type": "string" },
+        "change": { "type": "number" },
+        "type": { "type": "string", "enum": ["sale", "receive", "adjustment"] },
+        "ownerId": { "type": "string" }
+      },
+      "required": ["id", "date", "sku", "productName", "change", "type", "ownerId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profiles."
+    },
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/Product" },
+      "description": "Global products collection, scoped by ownerId."
+    },
+    "/logs/{logId}": {
+      "schema": { "$ref": "#/entities/LogEntry" },
+      "description": "Global logs collection, scoped by ownerId."
+    }
+  }
+}
